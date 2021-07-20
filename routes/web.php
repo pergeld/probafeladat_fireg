@@ -16,8 +16,15 @@ use App\Http\Controllers\PdfController;
 |
 */
 
+Route::get('/', [ApplianceController::class, 'index']);
+Route::post('/appliances', [ApplianceController::class, 'store']);
+Route::get('/appliances/{appliance}/edit', [ApplianceController::class, 'edit']);
+Route::delete('/appliances/{appliance}', [ApplianceController::class, 'destroy']);
 
-Route::resource('appliances', ApplianceController::class);
-Route::resource('controls', ControlController::class);
+Route::get('/controls/{control}', [ControlController::class, 'show']);
+Route::post('/controls', [ControlController::class, 'store']);
+Route::get('/controls/{control}/edit', [ControlController::class, 'edit']);
+Route::delete('/controls/{control}', [ControlController::class, 'destroy']);
 
-Route::get('pdf/print', [PdfController::class, 'print']);
+
+Route::get('pdf/create', [PdfController::class, 'create']);

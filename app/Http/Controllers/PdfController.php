@@ -8,13 +8,14 @@ use PDF;
 
 class PdfController extends Controller
 {
-    public function print()
-    {
+    public function create()
+    {    
         $appliances = Appliance::all();
 
         $pdf = PDF::loadView('probafeladat', compact('appliances'));
+        $filename = base_path('probafeladat.pdf');
+        $pdf->save($filename);
 
-        //return response()->download($pdf);
-        return $pdf->download('probafeladat.pdf');
+        return \Response::download($filename);
     }
 }

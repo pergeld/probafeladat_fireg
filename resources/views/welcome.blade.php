@@ -53,7 +53,7 @@
 </div>
 <div class="row">
     <div class="col-12 text-right">
-        <a href="/pdf/print" class="btn btn-primary">Nyomtatás</a>
+        <a href="javascript:void(0)" onclick="printPDF()" class="btn btn-primary">Nyomtatás</a>
     </div>
 </div>
 
@@ -137,6 +137,7 @@
                     </div>
                 </div>
 
+                {{-- Megjegyzés : description --}}
                 <div class="form-group">
                     <label class="col-sm-2">Megjegyzés</label>
                     <div class="col-sm-12">
@@ -221,7 +222,7 @@ function createAppliance() {
               $("#row_"+id+" td:nth-child(5)").html(response.data.type);
               $("#row_"+id+" td:nth-child(6)").html(response.data.production_date);
             } else {
-              $('table tbody').prepend('<tr id="row_'+response.data.id+'"><td>'+response.data.id+'</td><td>'+response.data.serial_number+'</td><td>'+response.data.site+'</td><td>'+response.data.location+'</td><td>'+response.data.type+'</td><td>'+response.data.production_date+'</td><td><a href="javascript:void(0)" data-id="'+response.data.id+'" onclick="editAppliance(event.target)" class="btn btn-info">Szerkesztés</a></td><td><a href="javascript:void(0)" data-id="'+response.data.id+'" class="btn btn-danger" onclick="deleteAppliance(event.target)">Tölés</a></td><td><a href="/controls/{{ $appliance->id }}" class="btn btn-primary">Karbantartások</a></td></tr>');
+              $('table tbody').prepend('<tr id="row_'+response.data.id+'"><td>'+response.data.id+'</td><td>'+response.data.serial_number+'</td><td>'+response.data.site+'</td><td>'+response.data.location+'</td><td>'+response.data.type+'</td><td>'+response.data.production_date+'</td><td><a href="javascript:void(0)" data-id="'+response.data.id+'" onclick="editAppliance(event.target)" class="btn btn-info">Szerkesztés</a></td><td><a href="javascript:void(0)" data-id="'+response.data.id+'" class="btn btn-danger" onclick="deleteAppliance(event.target)">Törlés</a></td><td><a href="/controls/{{ $appliance->id }}" class="btn btn-primary">Karbantartások</a></td></tr>');
             }
             $('#serial_number').val('');
             $('#site').val('');
@@ -251,6 +252,25 @@ function deleteAppliance(event) {
       $("#row_"+id).remove();
     }
   });
+}
+
+function printPDF(){
+  var req = new XMLHttpRequest();
+  req.open('GET', '/pdf/create', true);
+  req.responseType = "blob";
+
+  req.onload = function (event) {
+    var blob = req.response;
+    var link=document.createElement('a');
+    link.href=window.URL.createObjectURL(blob);
+    link.target = '_blank';
+    link.download="probafeladat.pdf";
+    link.click();
+    window.open(link);
+  };
+
+  req.send();
+  
 }
 
 

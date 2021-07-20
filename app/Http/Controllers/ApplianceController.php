@@ -24,7 +24,6 @@ class ApplianceController extends Controller
             'production_date' => 'required|date',
         ]);
 
-
         $appliance = Appliance::updateOrCreate(['id' => $request->id], [
             'site' => $request->site,
             'location' => $request->location,
