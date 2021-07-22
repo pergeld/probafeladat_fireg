@@ -24,17 +24,18 @@ class ApplianceController extends Controller
             'production_date' => 'required|date',
         ]);
 
-        $appliance = Appliance::updateOrCreate(['id' => $request->id], [
-            'site' => $request->site,
-            'location' => $request->location,
-            'type' => $request->type,
-            'serial_number' => $request->serial_number,
-            'production_date' => $request->production_date,
-            'description' => $request->description
-        ]);
-
+        for($i = 0; $i < $request->multiplication; $i++){
+            $appliance = Appliance::updateOrCreate(['id' => $request->id], [
+                'site' => $request->site,
+                'location' => $request->location,
+                'type' => $request->type,
+                'serial_number' => $request->serial_number,
+                'production_date' => $request->production_date,
+                'description' => $request->description
+            ]);
+        }
         return response()->json(['code'=>200, 'message'=>'Appliance Created successfully','data' => $appliance], 200);
-
+        
     }
 
     public function edit($id)

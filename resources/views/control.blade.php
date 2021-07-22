@@ -1,13 +1,13 @@
 <x-app>
-<h2 style="margin-top: 12px;" class="alert alert-success">{{ $id }} azonosító számú tűzoltókészülék karbantartásai</h2><br>
+<h2 class="title_text">{{ $id }} azonosító számú tűzoltókészülék karbantartásai</h2><br>
 <div class="row">
     <div class="col-12 text-right">
-        <a href="javascript:void(0)" class="btn btn-danger mb-3" id="create-new-control" onclick="addControl()">Új hozzáadása</a>
+        <a href="javascript:void(0)" class="primary_btn add_btn" id="create-new-control" onclick="addControl()"><i class="fas fa-plus"></i> Új hozzáadása</a>
     </div>
 </div>
-<div class="row" style="clear: both;margin-top: 18px;">
-    <div class="col-12">
-      <table class="table table-striped table-bordered">
+<div class="row">
+    <div class="main_div">
+      <table class="main_table">
         <thead>
             <tr>
                 <th>#</th>
@@ -27,15 +27,15 @@
                 <a
                     href="javascript:void(0)"
                     data-id="{{ $control->id }}"
-                    onclick="editAppliance(event.target)"
-                    class="btn btn-info"
+                    onclick="editControl(event.target)"
+                    class="second_btn edit_btn"
                 >Szerkesztés</a></td>
                <td>
                 <a
                     href="javascript:void(0)"
                     data-id="{{ $control->id }}"
                     onclick="deleteControl(event.target)"
-                    class="btn btn-danger"
+                    class="second_btn delete_btn"
                 >Törlés</a></td>
             </tr>
             @endforeach
@@ -51,45 +51,45 @@
         <div class="modal-header">
             <h4 class="modal-title">Új karbantartás hozzáadása</h4>
         </div>
-        <div class="modal-body">
-            <form name="controlForm" class="form-horizontal">
+        <div class="modal-body form_elements">
+            <form name="controlForm">
                <input type="hidden" name="control_id" id="control_id">
                <input type="hidden" name="appliance_id" id="appliance_id" value="{{$id}}">
                {{-- Karbantartás : maintenance --}}
-                <div class="form-group">
-                    <label for="maintenance" class="col-sm-2">Karbantartás</label>
-                    <div class="col-sm-12">
+                <div class="form_element">
+                    <label for="maintenance" class="label_element">Karbantartás</label>
+                    <div class="input_div">
                         <input
                             type="text"
                             id="maintenance"
                             name="maintenance"
-                            class="form-control"
+                            class="input_element"
                             required
                         >
                     </div>
                 </div>
 
                 {{-- Dátum : date --}}
-                <div class="form-group">
-                    <label for="date" class="col-sm-2">Karbantartás dátuma</label>
-                    <div class="col-sm-12">
+                <div class="form_element">
+                    <label for="date" class="label_element">Karbantartás dátuma</label>
+                    <div class="input_div">
                         <input
                             type="date"
                             id="date"
                             name="date"
-                            class="form-control"
+                            class="input_element"
                             required
                         >
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="col-sm-2">Megjegyzés</label>
-                    <div class="col-sm-12">
+                <div class="form_element">
+                    <label class="label_element">Megjegyzés</label>
+                    <div class="input_div">
                         <textarea
                             id="description"
                             name="description"
-                            class="form-control"
+                            class="input_element"
                             rows="7"
                         ></textarea>
                     </div>
@@ -97,7 +97,7 @@
             </form>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-primary" onclick="createControl()">Mentés</button>
+            <button type="button" class="second_btn control_btn" onclick="createControl()">Mentés</button>
         </div>
     </div>
   </div>

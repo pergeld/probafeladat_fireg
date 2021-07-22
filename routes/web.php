@@ -23,6 +23,7 @@ Route::delete('/appliances/{appliance}', [ApplianceController::class, 'destroy']
 
 Route::get('/controls/{control}', [ControlController::class, 'show']);
 Route::post('/controls', [ControlController::class, 'store']);
+Route::post('/storecontrol', [ControlController::class, 'storecontrol']);
 Route::get('/controls/{control}/edit', [ControlController::class, 'edit']);
 Route::delete('/controls/{control}', [ControlController::class, 'destroy']);
 

@@ -1,13 +1,13 @@
 <x-app>
-<h2 style="margin-top: 12px;" class="alert alert-success">Tűzoltó készülékek</h2><br>
+<h2 class="title_text">Tűzoltó készülékek</h2><br>
 <div class="row">
     <div class="col-12 text-right">
-        <a href="javascript:void(0)" class="btn btn-danger mb-3" id="create-new-appliance" onclick="addAppliance()">Új hozzáadása</a>
+        <a href="javascript:void(0)" class="primary_btn add_btn" id="create-new-appliance" onclick="addAppliance()"><i class="fas fa-plus"></i> Új hozzáadása</a>
     </div>
 </div>
-<div class="row" style="clear: both;margin-top: 18px;">
-    <div class="col-12">
-      <table class="table table-striped table-bordered">
+<div class="row">
+    <div class="main_div">
+      <table class="main_table">
         <thead>
             <tr>
                 <th>#</th>
@@ -35,16 +35,16 @@
                     href="javascript:void(0)"
                     data-id="{{ $appliance->id }}"
                     onclick="editAppliance(event.target)"
-                    class="btn btn-info"
+                    class="second_btn edit_btn"
                 >Szerkesztés</a></td>
                <td>
                 <a
                     href="javascript:void(0)"
                     data-id="{{ $appliance->id }}"
                     onclick="deleteAppliance(event.target)"
-                    class="btn btn-danger"
+                    class="second_btn delete_btn"
                 >Törlés</a></td>
-                <td><a href="/controls/{{ $appliance->id }}" class="btn btn-primary">Karbantartások</a></td>
+                <td><a href="/controls/{{ $appliance->id }}" class="second_btn control_btn">Karbantartások</a></td>
             </tr>
             @endforeach
         </tbody>
@@ -53,7 +53,7 @@
 </div>
 <div class="row">
     <div class="col-12 text-right">
-        <a href="javascript:void(0)" onclick="printPDF()" class="btn btn-primary">Nyomtatás</a>
+        <a href="javascript:void(0)" onclick="printPDF()" class="primary_btn print_btn"><i class="fas fa-print"></i> Nyomtatás</a>
     </div>
 </div>
 
@@ -64,95 +64,115 @@
         <div class="modal-header">
             <h4 class="modal-title"></h4>
         </div>
-        <div class="modal-body">
-            <form name="applianceForm" class="form-horizontal">
+        <div class="modal-body form_elements">
+            <form name="applianceForm">
                <input type="hidden" name="appliance_id" id="appliance_id">
                {{-- Telephely : site --}}
-                <div class="form-group">
-                    <label for="site" class="col-sm-2">Telephely</label>
-                    <div class="col-sm-12">
+                <div class="form_element">
+                    <label for="site" class="label_element">Telephely</label>
+                    <div class="input_div">
                         <input
                             type="text"
                             id="site"
                             name="site"
-                            class="form-control"
+                            class="input_element"
                             required
                         >
                     </div>
                 </div>
 
                 {{-- Készenléti helye : location --}}
-                <div class="form-group">
-                    <label for="location" class="col-sm-2">Készenléti helye</label>
-                    <div class="col-sm-12">
+                <div class="form_element">
+                    <label for="location" class="label_element">Készenléti helye</label>
+                    <div class="input_div">
                         <input
                             type="text"
                             id="location"
                             name="location"
-                            class="form-control"
+                            class="input_element"
                             required
                         >
                     </div>
                 </div>
 
                 {{-- Készülék típusa : type --}}
-                <div class="form-group">
-                    <label for="type" class="col-sm-2">Készülék típusa</label>
-                    <div class="col-sm-12">
+                <div class="form_element">
+                    <label for="type" class="label_element">Készülék típusa</label>
+                    <div class="input_div">
                         <input
                             type="text"
                             id="type"
                             name="type"
-                            class="form-control"
+                            class="input_element"
                             required
                         >
                     </div>
                 </div>
 
                 {{-- Gyári száma : serial_number --}}
-                <div class="form-group">
-                    <label for="serial_number" class="col-sm-2">Gyári száma</label>
-                    <div class="col-sm-12">
+                <div class="form_element">
+                    <label for="serial_number" class="label_element">Gyári száma</label>
+                    <div class="input_div">
                         <input
                             type="text"
                             id="serial_number"
                             name="serial_number"
-                            class="form-control"
+                            class="input_element"
                             required
                         >
                     </div>
                 </div>
 
                 {{-- Gyártás dátuma : production_date --}}
-                <div class="form-group">
-                    <label for="production_date" class="col-sm-2">Gyártás dátuma</label>
-                    <div class="col-sm-12">
+                <div class="form_element">
+                    <label for="production_date" class="label_element">Gyártás dátuma</label>
+                    <div class="input_div">
                         <input
                             type="date"
                             id="production_date"
                             name="production_date"
-                            class="form-control"
+                            class="input_element"
                             required
                         >
                     </div>
                 </div>
 
                 {{-- Megjegyzés : description --}}
-                <div class="form-group">
-                    <label class="col-sm-2">Megjegyzés</label>
-                    <div class="col-sm-12">
+                <div class="form_element">
+                    <label class="label_element">Megjegyzés</label>
+                    <div class="input_div">
                         <textarea
                             id="description"
                             name="description"
-                            class="form-control"
+                            class="input_element"
                             rows="7"
                         ></textarea>
+                    </div>
+                </div>
+
+
+                {{-- Többszörösítés : multiplication --}}
+                <div class="form_element">
+                    <label for="multiplication" class="label_element">Többszörösítés</label>
+                    <div class="input_div">
+                        <select name="multiplication" id="multiplication" class="input_element">
+                          <option value="1" selected>-</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                        </select>
                     </div>
                 </div>
             </form>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-primary" onclick="createAppliance()">Mentés</button>
+            <button type="button" class="second_btn control_btn" onclick="createAppliance()">Mentés</button>
         </div>
     </div>
   </div>
@@ -195,6 +215,7 @@ function createAppliance() {
   var serial_number = $('#serial_number').val();
   var production_date = $('#production_date').val();
   var description = $('#description').val();
+  var multiplication = $('#multiplication').val();
   var id = $('#appliance_id').val();
 
   let _url     = `/appliances`;
@@ -211,18 +232,23 @@ function createAppliance() {
         serial_number: serial_number,
         production_date: production_date,
         description: description,
+        multiplication: multiplication,
         _token: _token
       },
       success: function(response) {
           if(response.code == 200) {
             if(id != ""){
+              //szerkesztés
               $("#row_"+id+" td:nth-child(2)").html(response.data.serial_number);
               $("#row_"+id+" td:nth-child(3)").html(response.data.site);
               $("#row_"+id+" td:nth-child(4)").html(response.data.location);
               $("#row_"+id+" td:nth-child(5)").html(response.data.type);
               $("#row_"+id+" td:nth-child(6)").html(response.data.production_date);
             } else {
-              $('table tbody').prepend('<tr id="row_'+response.data.id+'"><td>'+response.data.id+'</td><td>'+response.data.serial_number+'</td><td>'+response.data.site+'</td><td>'+response.data.location+'</td><td>'+response.data.type+'</td><td>'+response.data.production_date+'</td><td><a href="javascript:void(0)" data-id="'+response.data.id+'" onclick="editAppliance(event.target)" class="btn btn-info">Szerkesztés</a></td><td><a href="javascript:void(0)" data-id="'+response.data.id+'" class="btn btn-danger" onclick="deleteAppliance(event.target)">Törlés</a></td><td><a href="/controls/{{ $appliance->id }}" class="btn btn-primary">Karbantartások</a></td></tr>');
+              //új hozzáadása
+              for (let i = 0; i < multiplication; i++) {
+                $('table tbody').prepend('<tr id="row_'+response.data.id+'"><td>'+response.data.id+'</td><td>'+response.data.serial_number+'</td><td>'+response.data.site+'</td><td>'+response.data.location+'</td><td>'+response.data.type+'</td><td>'+response.data.production_date+'</td><td><a href="javascript:void(0)" data-id="'+response.data.id+'" onclick="editAppliance(event.target)" class="second_btn edit_btn">Szerkesztés</a></td><td><a href="javascript:void(0)" data-id="'+response.data.id+'" class="second_btn delete_btn" onclick="deleteAppliance(event.target)">Törlés</a></td><td><a href="/controls/'+response.data.id+'" class="second_btn control_btn">Karbantartások</a></td></tr>');
+              }
             }
             $('#serial_number').val('');
             $('#site').val('');

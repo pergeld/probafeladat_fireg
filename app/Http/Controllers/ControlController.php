@@ -33,6 +33,16 @@ class ControlController extends Controller
 
     }
 
+    public function storecontrol(Request $request)
+    {
+        $request->validate([
+            'maintenance' => 'required',
+            'date' => 'required|date'
+        ]);
+
+        return redirect('/');
+    }
+
     public function edit($id)
     {
         $control = Control::find($id);
