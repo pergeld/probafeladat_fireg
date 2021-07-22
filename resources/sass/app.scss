@@ -1,0 +1,137 @@
+$primary-text-color: #E3242B;
+$secondary-text-color: #E3242B;
+$primary-btn-color: #3944BC;
+$edit-btn-color: #03AC13;
+$delete-btn-color: #990F02;
+
+.title_text {
+    color: $primary-text-color;
+    font-weight: 600;
+    padding-top: 12px;
+}
+
+.main_div {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.main_table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+
+    td, th {
+        border: 1px solid #DDD;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #EEE;
+    }
+
+    th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: center;
+        background-color: $secondary-text-color;
+        color: white;
+    }
+}
+
+.primary_btn {
+    border: 2px solid $primary-btn-color;
+    color: #333;
+    right: 0;
+    border-radius: 5px;
+    padding: 12px 24px;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 16px;
+
+    &:hover {
+        background: $primary-btn-color;
+        border: 2px solid $primary-btn-color;
+        color: #fff;
+        text-decoration: none;
+        transition: background-color 0.5s ease;
+    }
+
+    &:focus {
+        background: $primary-btn-color;
+        border: 2px solid $primary-btn-color;
+        color: #fff;
+        text-decoration: none;
+    }
+}
+
+.add_btn {
+    margin-bottom: 8px;
+}
+
+.primary_btn {
+    margin-top: 8px;
+}
+
+.second_btn {
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 6px 12px;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 16px;
+
+    &:hover {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    &:focus {
+        color: #fff;
+        text-decoration: none;
+    }
+}
+
+.edit_btn {
+    background-color: $edit-btn-color;
+
+    &:hover {
+        background-color: $edit-btn-color;
+    }
+}
+
+.delete_btn {
+    background-color: $delete-btn-color;
+
+    &:hover {
+        background-color: $delete-btn-color;
+    }
+}
+
+.control_btn {
+    background-color: $primary-btn-color;
+
+    &:hover {
+        background-color: $primary-btn-color;
+    }
+}
+
+.form_elements {
+    width: 100%;
+
+    .form_element {
+        margin-top: 24px;
+    }
+
+    .input_element {
+        width: 100%;
+        padding: 8px 12px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+}

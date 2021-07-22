@@ -1,0 +1,120 @@
+.title_text {
+  color: #E3242B;
+  font-weight: 600;
+  padding-top: 12px;
+}
+
+.main_div {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.main_table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+.main_table td, .main_table th {
+  border: 1px solid #DDD;
+  padding: 8px;
+}
+.main_table tr:nth-child(even) {
+  background-color: #EEE;
+}
+.main_table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #E3242B;
+  color: white;
+}
+
+.primary_btn {
+  border: 2px solid #3944BC;
+  color: #333;
+  right: 0;
+  border-radius: 5px;
+  padding: 12px 24px;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 16px;
+}
+.primary_btn:hover {
+  background: #3944BC;
+  border: 2px solid #3944BC;
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.5s ease;
+}
+.primary_btn:focus {
+  background: #3944BC;
+  border: 2px solid #3944BC;
+  color: #fff;
+  text-decoration: none;
+}
+
+.add_btn {
+  margin-bottom: 8px;
+}
+
+.primary_btn {
+  margin-top: 8px;
+}
+
+.second_btn {
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 6px 12px;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 16px;
+}
+.second_btn:hover {
+  color: #fff;
+  text-decoration: none;
+}
+.second_btn:focus {
+  color: #fff;
+  text-decoration: none;
+}
+
+.edit_btn {
+  background-color: #03AC13;
+}
+.edit_btn:hover {
+  background-color: #03AC13;
+}
+
+.delete_btn {
+  background-color: #990F02;
+}
+.delete_btn:hover {
+  background-color: #990F02;
+}
+
+.control_btn {
+  background-color: #3944BC;
+}
+.control_btn:hover {
+  background-color: #3944BC;
+}
+
+.form_elements {
+  width: 100%;
+}
+.form_elements .form_element {
+  margin-top: 24px;
+}
+.form_elements .input_element {
+  width: 100%;
+  padding: 8px 12px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
