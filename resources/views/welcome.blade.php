@@ -247,7 +247,8 @@ function createAppliance() {
             } else {
               //új hozzáadása
               for (let i = 0; i < multiplication; i++) {
-                $('table tbody').prepend('<tr id="row_'+response.data.id+'"><td>'+response.data.id+'</td><td>'+response.data.serial_number+'</td><td>'+response.data.site+'</td><td>'+response.data.location+'</td><td>'+response.data.type+'</td><td>'+response.data.production_date+'</td><td><a href="javascript:void(0)" data-id="'+response.data.id+'" onclick="editAppliance(event.target)" class="second_btn edit_btn">Szerkesztés</a></td><td><a href="javascript:void(0)" data-id="'+response.data.id+'" class="second_btn delete_btn" onclick="deleteAppliance(event.target)">Törlés</a></td><td><a href="/controls/'+response.data.id+'" class="second_btn control_btn">Karbantartások</a></td></tr>');
+                var azon = (response.data.id - multiplication + 1) + i;
+                $('table tbody').prepend('<tr id="row_'+azon+'"><td>'+azon+'</td><td>'+response.data.serial_number+'</td><td>'+response.data.site+'</td><td>'+response.data.location+'</td><td>'+response.data.type+'</td><td>'+response.data.production_date+'</td><td><a href="javascript:void(0)" data-id="'+azon+'" onclick="editAppliance(event.target)" class="second_btn edit_btn">Szerkesztés</a></td><td><a href="javascript:void(0)" data-id="'+azon+'" class="second_btn delete_btn" onclick="deleteAppliance(event.target)">Törlés</a></td><td><a href="/controls/'+azon+'" class="second_btn control_btn">Karbantartások</a></td></tr>');
               }
             }
             $('#serial_number').val('');
