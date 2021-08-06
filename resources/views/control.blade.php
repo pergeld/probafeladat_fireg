@@ -1,11 +1,6 @@
 <x-app>
 <h2 class="title_text">{{ $id }} azonosító számú tűzoltókészülék karbantartásai</h2><br>
 <div class="row">
-    <div class="col-12 text-right">
-        <a href="javascript:void(0)" class="primary_btn add_btn" id="create-new-control" onclick="addControl()"><i class="fas fa-plus"></i> Új hozzáadása</a>
-    </div>
-</div>
-<div class="row">
     <div class="main_div">
       <table class="main_table">
         <thead>
@@ -24,19 +19,25 @@
                <td>{{ $control->maintenance }}</td>
                <td>{{ $control->date }}</td>
                <td>
-                <a
-                    href="javascript:void(0)"
-                    data-id="{{ $control->id }}"
-                    onclick="editControl(event.target)"
-                    class="second_btn edit_btn"
-                >Szerkesztés</a></td>
+                  <div class="btn_div">
+                    <a
+                        href="javascript:void(0)"
+                        data-id="{{ $control->id }}"
+                        onclick="editControl(event.target)"
+                        class="second_btn extinguisher_btn"
+                    ><i class="fas fa-edit"></i></a>
+                  </div>
+               </td>
                <td>
-                <a
-                    href="javascript:void(0)"
-                    data-id="{{ $control->id }}"
-                    onclick="deleteControl(event.target)"
-                    class="second_btn delete_btn"
-                >Törlés</a></td>
+                <div class="btn_div">
+                  <a
+                      href="javascript:void(0)"
+                      data-id="{{ $control->id }}"
+                      onclick="deleteControl(event.target)"
+                      class="second_btn extinguisher_btn"
+                  ><i class="fas fa-trash-alt"></i></a>
+                </div>
+              </td>
             </tr>
             @endforeach
         </tbody>
@@ -57,8 +58,10 @@
                <input type="hidden" name="appliance_id" id="appliance_id" value="{{$id}}">
                {{-- Karbantartás : maintenance --}}
                 <div class="form_element">
-                    <label for="maintenance" class="label_element">Karbantartás</label>
-                    <div class="input_div">
+                    <div class="col-25">
+                      <label for="maintenance" class="label_element">Karbantartás</label>
+                    </div>
+                    <div class="col-75">
                         <input
                             type="text"
                             id="maintenance"
@@ -71,8 +74,10 @@
 
                 {{-- Dátum : date --}}
                 <div class="form_element">
-                    <label for="date" class="label_element">Karbantartás dátuma</label>
-                    <div class="input_div">
+                    <div class="col-25">
+                      <label for="date" class="label_element">Karbantartás dátuma</label>
+                    </div>
+                    <div class="col-75">
                         <input
                             type="date"
                             id="date"
@@ -84,8 +89,10 @@
                 </div>
 
                 <div class="form_element">
-                    <label class="label_element">Megjegyzés</label>
-                    <div class="input_div">
+                    <div class="col-25">
+                      <label class="label_element">Megjegyzés</label>
+                    </div>
+                    <div class="col-75">
                         <textarea
                             id="description"
                             name="description"
@@ -97,7 +104,7 @@
             </form>
         </div>
         <div class="modal-footer">
-            <button type="button" class="second_btn control_btn" onclick="createControl()">Mentés</button>
+            <button type="button" class="save_btn" onclick="createControl()">Mentés</button>
         </div>
     </div>
   </div>
@@ -156,8 +163,6 @@
               if(id != ""){
                 $("#row_"+id+" td:nth-child(2)").html(response.data.maintenance);
                 $("#row_"+id+" td:nth-child(3)").html(response.data.date);
-              } else {
-                $('table tbody').prepend('<tr id="row_'+response.data.id+'"><td>'+response.data.id+'</td><td>'+response.data.maintenance+'</td><td>'+response.data.date+'</td><td><a href="javascript:void(0)" data-id="'+response.data.id+'" onclick="editControl(event.target)" class="btn btn-info">Szerkesztés</a></td><td><a href="javascript:void(0)" data-id="'+response.data.id+'" class="btn btn-danger" onclick="deleteControl(event.target)">Törlés</a></td></tr>');
               }
               $('#maintenance').val('');
               $('#date').val('');

@@ -1,15 +1,42 @@
-$primary-text-color: #E3242B;
-$secondary-text-color: #E3242B;
-$primary-btn-color: #3944BC;
-$edit-btn-color: #03AC13;
-$delete-btn-color: #990F02;
+$red-color: #C32548;
+$red-hover-color: #97192A;
+$add-btn-color: #EBAC51;
+$add-btn-hover:#CA8317;
+$print-btn-color: #555553;
+$print-btn-hover: #3B3C39;
+$save-btn: #31C261;
+$save-btn-hover: #409F44;
 
+//cím
 .title_text {
-    color: $primary-text-color;
-    font-weight: 600;
+    color: $red-color;
+    font-size: 24px;
     padding-top: 12px;
+    text-decoration: underline $red-color;
 }
 
+//hozzáadás gomb
+.add_btn_container {
+    margin: 64px 0px 32px 0px;
+
+    .add_btn {
+        color: #fff;
+        background: $add-btn-color;
+        padding: 6px 12px;
+
+        &:hover {
+            background: $add-btn-hover;
+            text-decoration: none;
+            transition: background-color 0.5s ease;
+        }
+
+        &:focus {
+            text-decoration: none;
+        }
+    }
+}
+
+//táblázat
 .main_div {
     margin: 0 auto;
     width: 100%;
@@ -25,113 +52,207 @@ $delete-btn-color: #990F02;
         padding: 8px;
     }
 
-    tr:nth-child(even) {
-        background-color: #EEE;
+    tbody tr {
+        border-left: 6px solid $red-color;
+        background: #eff;
     }
 
     th {
         padding-top: 12px;
         padding-bottom: 12px;
+        border: 1px solid #EEE;
         text-align: center;
-        background-color: $secondary-text-color;
-        color: white;
+        font-weight: bold;
     }
 }
 
-.primary_btn {
-    border: 2px solid $primary-btn-color;
-    color: #333;
-    right: 0;
-    border-radius: 5px;
-    padding: 12px 24px;
-    text-align: center;
-    display: inline-block;
-    text-decoration: none;
-    font-size: 16px;
+//táblázat gombok
+.extinguisher_div {
+    margin-top: 12px;
+    margin-bottom: 32px;
+}
+
+.wrench_div {
+    margin-bottom: 12px;
+}
+
+.btn_div {
+
+    .second_btn {
+        color: #fff;
+        background: $red-color;
+        font-size: 12px;
+
+        &:hover {
+            background: $red-hover-color;
+            text-decoration: none;
+            transition: background-color 0.5s ease;
+        }
+
+        &:focus {
+            text-decoration: none;
+        }
+    }
+
+    .extinguisher_btn {
+        padding: 8px;
+    }
+
+    .wrench_btn {
+        padding: 7px;
+    }
+
+}
+
+//nyomtatás gomb
+.print_btn_div {
+    margin-top: 32px;
+    position: absolute;
+    right: 13%;
+
+    .print_btn {
+        color: #fff;
+        background: $print-btn-color;
+        font-size: 12px;
+        padding: 6px 12px;
+
+        &:hover {
+            color: #fff;
+            background: $print-btn-hover;
+            text-decoration: none;
+            transition: background-color 0.5s ease;
+        }
+
+        &:focus {
+            text-decoration: none;
+        }
+    }
+}
+
+//tuzoltokeszulek modal
+.modal_title_text {
+    margin-left: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.form_elements {
+    width: 100%;
+    box-sizing: border-box;
+
+    input[type=text], input[type=date], select, textarea {
+        width: 100%;
+        padding: 6px;
+        border: 1px solid #ccc;
+    }
+
+    .col-25 {
+        float: left;
+        text-align: left;
+        width: 25%;
+        margin-top: 10px;
+    }
+
+    .col-75 {
+        float: left;
+        width: 75%;
+        margin-top: 10px;
+    }
+
+    .form_element:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+//mentes gomb
+.save_btn {
+    color: #fff;
+    background: $save-btn;
+    font-size: 12px;
+    padding: 6px 12px;
 
     &:hover {
-        background: $primary-btn-color;
-        border: 2px solid $primary-btn-color;
         color: #fff;
+        background: $save-btn-hover;
         text-decoration: none;
         transition: background-color 0.5s ease;
     }
 
     &:focus {
-        background: $primary-btn-color;
-        border: 2px solid $primary-btn-color;
-        color: #fff;
         text-decoration: none;
     }
 }
 
-.add_btn {
-    margin-bottom: 8px;
+.exit_btn_div {
+    display: block;
+    margin-left: auto;
 }
 
-.primary_btn {
-    margin-top: 8px;
-}
-
-.second_btn {
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 6px 12px;
-    text-align: center;
-    display: inline-block;
-    text-decoration: none;
+.exit_btn {
     font-size: 16px;
+}
 
-    &:hover {
+//Karbantartas modal
+#app {
+    padding: 1rem;
+    a {
         color: #fff;
-        text-decoration: none;
     }
-
-    &:focus {
-        color: #fff;
-        text-decoration: none;
+    .exit_btn {
+        color: $red-color;
     }
-}
-
-.edit_btn {
-    background-color: $edit-btn-color;
-
-    &:hover {
-        background-color: $edit-btn-color;
-    }
-}
-
-.delete_btn {
-    background-color: $delete-btn-color;
-
-    &:hover {
-        background-color: $delete-btn-color;
-    }
-}
-
-.control_btn {
-    background-color: $primary-btn-color;
-
-    &:hover {
-        background-color: $primary-btn-color;
-    }
-}
-
-.form_elements {
+  }
+  
+.modal-mask {
+    position: fixed;
+    z-index: 9998;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: table;
+    transition: opacity 0.3s ease;
+}
+  
+.modal-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+}
+  
+.modal-container {
+    width: 800px;
+    height: 450px;
+    margin: 0px auto;
+    padding: 20px 30px;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+    transition: all 0.3s ease;
+    font-family: Helvetica, Arial, sans-serif;
+}
+  
+.modal-header h3 {
+    margin-top: 0;
+    color: #42b983;
+}
+  
+.modal-body {
+    margin: 20px 0;
+}
 
-    .form_element {
-        margin-top: 24px;
-    }
-
-    .input_element {
-        width: 100%;
-        padding: 8px 12px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-    }
+.modal-enter {
+    opacity: 0;
+}
+  
+.modal-leave-active {
+    opacity: 0;
+}
+  
+.modal-enter .modal-container,
+.modal-leave-active .modal-container {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
 }

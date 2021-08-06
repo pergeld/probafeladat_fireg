@@ -31,7 +31,7 @@ class ApplianceController extends Controller
                 'type' => $request->type,
                 'serial_number' => $request->serial_number,
                 'production_date' => $request->production_date,
-                'description' => $request->description
+                'description' => $request->description,
             ]);
         }
         return response()->json(['code'=>200, 'message'=>'Appliance Created successfully','data' => $appliance], 200);

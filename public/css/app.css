@@ -1,7 +1,26 @@
 .title_text {
-  color: #E3242B;
-  font-weight: 600;
+  color: #C32548;
+  font-size: 24px;
   padding-top: 12px;
+  -webkit-text-decoration: underline #C32548;
+          text-decoration: underline #C32548;
+}
+
+.add_btn_container {
+  margin: 64px 0px 32px 0px;
+}
+.add_btn_container .add_btn {
+  color: #fff;
+  background: #EBAC51;
+  padding: 6px 12px;
+}
+.add_btn_container .add_btn:hover {
+  background: #CA8317;
+  text-decoration: none;
+  transition: background-color 0.5s ease;
+}
+.add_btn_container .add_btn:focus {
+  text-decoration: none;
 }
 
 .main_div {
@@ -18,103 +37,183 @@
   border: 1px solid #DDD;
   padding: 8px;
 }
-.main_table tr:nth-child(even) {
-  background-color: #EEE;
+.main_table tbody tr {
+  border-left: 6px solid #C32548;
+  background: #eff;
 }
 .main_table th {
   padding-top: 12px;
   padding-bottom: 12px;
+  border: 1px solid #EEE;
   text-align: center;
-  background-color: #E3242B;
-  color: white;
+  font-weight: bold;
 }
 
-.primary_btn {
-  border: 2px solid #3944BC;
-  color: #333;
-  right: 0;
-  border-radius: 5px;
-  padding: 12px 24px;
-  text-align: center;
-  display: inline-block;
-  text-decoration: none;
-  font-size: 16px;
+.extinguisher_div {
+  margin-top: 12px;
+  margin-bottom: 32px;
 }
-.primary_btn:hover {
-  background: #3944BC;
-  border: 2px solid #3944BC;
+
+.wrench_div {
+  margin-bottom: 12px;
+}
+
+.btn_div .second_btn {
   color: #fff;
+  background: #C32548;
+  font-size: 12px;
+}
+.btn_div .second_btn:hover {
+  background: #97192A;
   text-decoration: none;
   transition: background-color 0.5s ease;
 }
-.primary_btn:focus {
-  background: #3944BC;
-  border: 2px solid #3944BC;
-  color: #fff;
+.btn_div .second_btn:focus {
   text-decoration: none;
 }
-
-.add_btn {
-  margin-bottom: 8px;
+.btn_div .extinguisher_btn {
+  padding: 8px;
+}
+.btn_div .wrench_btn {
+  padding: 7px;
 }
 
-.primary_btn {
-  margin-top: 8px;
+.print_btn_div {
+  margin-top: 32px;
+  position: absolute;
+  right: 13%;
 }
-
-.second_btn {
+.print_btn_div .print_btn {
   color: #fff;
-  border: none;
-  border-radius: 5px;
+  background: #555553;
+  font-size: 12px;
   padding: 6px 12px;
-  text-align: center;
-  display: inline-block;
-  text-decoration: none;
-  font-size: 16px;
 }
-.second_btn:hover {
+.print_btn_div .print_btn:hover {
   color: #fff;
+  background: #3B3C39;
+  text-decoration: none;
+  transition: background-color 0.5s ease;
+}
+.print_btn_div .print_btn:focus {
   text-decoration: none;
 }
-.second_btn:focus {
-  color: #fff;
-  text-decoration: none;
-}
 
-.edit_btn {
-  background-color: #03AC13;
-}
-.edit_btn:hover {
-  background-color: #03AC13;
-}
-
-.delete_btn {
-  background-color: #990F02;
-}
-.delete_btn:hover {
-  background-color: #990F02;
-}
-
-.control_btn {
-  background-color: #3944BC;
-}
-.control_btn:hover {
-  background-color: #3944BC;
+.modal_title_text {
+  margin-left: 12px;
+  display: flex;
+  align-items: center;
 }
 
 .form_elements {
   width: 100%;
-}
-.form_elements .form_element {
-  margin-top: 24px;
-}
-.form_elements .input_element {
-  width: 100%;
-  padding: 8px 12px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
   box-sizing: border-box;
+}
+.form_elements input[type=text], .form_elements input[type=date], .form_elements select, .form_elements textarea {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #ccc;
+}
+.form_elements .col-25 {
+  float: left;
+  text-align: left;
+  width: 25%;
+  margin-top: 10px;
+}
+.form_elements .col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 10px;
+}
+.form_elements .form_element:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.save_btn {
+  color: #fff;
+  background: #31C261;
+  font-size: 12px;
+  padding: 6px 12px;
+}
+.save_btn:hover {
+  color: #fff;
+  background: #409F44;
+  text-decoration: none;
+  transition: background-color 0.5s ease;
+}
+.save_btn:focus {
+  text-decoration: none;
+}
+
+.exit_btn_div {
+  display: block;
+  margin-left: auto;
+}
+
+.exit_btn {
+  font-size: 16px;
+}
+
+#app {
+  padding: 1rem;
+}
+#app a {
+  color: #fff;
+}
+#app .exit_btn {
+  color: #C32548;
+}
+
+.modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: table;
+  transition: opacity 0.3s ease;
+}
+
+.modal-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.modal-container {
+  width: 800px;
+  height: 450px;
+  margin: 0px auto;
+  padding: 20px 30px;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+  transition: all 0.3s ease;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.modal-header h3 {
+  margin-top: 0;
+  color: #42b983;
+}
+
+.modal-body {
+  margin: 20px 0;
+}
+
+.modal-enter {
+  opacity: 0;
+}
+
+.modal-leave-active {
+  opacity: 0;
+}
+
+.modal-enter .modal-container,
+.modal-leave-active .modal-container {
+  transform: scale(1.1);
 }
 

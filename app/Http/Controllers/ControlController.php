@@ -40,6 +40,15 @@ class ControlController extends Controller
             'date' => 'required|date'
         ]);
 
+        $control = new Control;
+
+        $control->maintenance = $request->maintenance;
+        $control->date = $request->date;
+        $control->appliance_id = $request->appliance_id;
+        $control->description = $request->description;
+
+        $control->save();
+
         return redirect('/');
     }
 
